@@ -1,0 +1,2 @@
+class CarKilometerDriven < ApplicationRecord
+end

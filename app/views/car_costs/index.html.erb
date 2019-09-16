@@ -1,0 +1,27 @@
+<h1>CRUD operations for Car Costs</h1>
+<%= link_to "Add New ", new_car_cost_path %> |
+<%= link_to "Go to Admin Dashboard", admins_index_path %>
+
+<% if @car_costs != [] %>
+
+<h3>Listing of Car Conditions and their respective Cost</h3>
+<table>
+  <tr>
+    <th>Condition</th>
+    <th>Cost</th>
+    <th colspan="3"></th>
+  </tr>
+ 
+  <% @car_costs.each do |c| %>
+    <tr>
+      <td><%= c.condition %></td>
+      <td><%= c.cost %></td>
+      <td><%= link_to "Show", car_cost_path(c) %></td>
+      <td><%= link_to "Edit", edit_car_cost_path(c) %></td>
+      <td><%= link_to "Destroy", car_cost_path(c),
+              method: :delete,
+              data: { confirm: "Are you sure?" } %></td>
+    </tr>
+  <% end %>
+</table>
+<% end %>

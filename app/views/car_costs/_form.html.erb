@@ -1,0 +1,16 @@
+<%= form_for @car_cost do |form| %>
+  <%= render :partial => "shared/error", locals: {var: @car_cost} %>
+  <p>
+    <%= form.label :condition %>
+    <br>
+    <%= form.text_field :condition , required: true %>
+  </p>
+  <p>
+    <%= form.label :cost %>
+    <br>
+    <%= form.text_field :cost , required: true %>
+  </p>
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>

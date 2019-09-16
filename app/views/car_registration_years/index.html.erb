@@ -1,0 +1,27 @@
+<h1>CRUD operations for Car registration years</h1>
+<%= link_to "Add New ", new_car_registration_year_path %> |
+<%= link_to "Go to Admin Dashboard", admins_index_path %>
+
+<% if @car_registration_years != [] %>
+
+<h3>Listing of Car registration years</h3>
+<table>
+  <tr>
+    <th>Start</th>
+    <th>End</th>
+    <th colspan="3"></th>
+  </tr>
+ 
+  <% @car_registration_years.each do |c| %>
+    <tr>
+      <td><%= c.start %></td>
+      <td><%= c.end %></td>
+      <td><%= link_to "Show", car_registration_year_path(c) %></td>
+      <td><%= link_to "Edit", edit_car_registration_year_path(c) %></td>
+      <td><%= link_to "Destroy", car_registration_year_path(c),
+              method: :delete,
+              data: { confirm: "Are you sure?" } %></td>
+    </tr>
+  <% end %>
+</table>
+<% end %>

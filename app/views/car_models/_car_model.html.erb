@@ -1,0 +1,9 @@
+<p>
+    <strong>Car Model Name:</strong>
+    <%= car_model.name %>
+  </p>
+  <p>
+  <%= link_to 'Destroy Car Model', [car_model.car_brand, car_model],
+               method: :delete,
+               data: { confirm: 'Are you sure?' } %>
+</p>

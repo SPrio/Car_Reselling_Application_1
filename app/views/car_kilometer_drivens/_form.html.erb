@@ -1,0 +1,11 @@
+<%= form_for @car_kilometer_driven do |form| %>
+  <%= render :partial => "shared/error", locals: {var: @car_kilometer_driven} %>
+  <p>
+    <%= form.label :range %>
+    <br>
+    <%= form.text_field :range , required: true %>
+  </p>
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>

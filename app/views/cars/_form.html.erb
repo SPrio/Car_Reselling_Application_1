@@ -1,0 +1,48 @@
+<%= form_for @car do |form| %>
+  <%= render :partial => "shared/error", locals: {var: @car} %>
+  <p>
+    <%= form.label :brand %>
+    <br>
+    <%= form.collection_select :brand, CarBrand.all, :name, :name, include_blank: true %>
+  </p>
+  
+  <p>
+    <%= form.label :model %>
+    <br>
+    <%= form.grouped_collection_select :model, CarBrand.all, :car_models, :name, :name, :name,include_blank: true %>
+  </p>
+  <p>
+    <%= form.label :variant %>
+    <br>
+    <%= form.collection_select :variant, CarVariant.all, :name, :name%>
+  </p>
+  <p>
+    <%= form.label :kilometer_driven %>
+    <br>
+    <%= form.collection_select :kilometer_driven, CarKilometerDriven.all, :range, :range %>
+  </p>
+  <p>
+    <%= form.label :registration_year %>
+    <br>
+    <%= form.select :registration_year, (((CarRegistrationYear.first.start.to_i)..(CarRegistrationYear.first.end.to_i)).to_a) %>
+  </p>
+  <p>
+    <%= form.label :city %>
+    <br>
+    <%= form.collection_select :city, CarCity.all, :name, :name%>
+  </p>
+  <p>
+    <%= form.label :registration_state %>
+    <br>
+    <%= form.collection_select :registration_state, CarRegistrationState.all, :name, :name%>
+  </p> 
+ 
+  <p>
+    <%= form.label :condition %>
+    <br>
+    <%= form.collection_select :condition, CarCost.all, :condition, :condition%>
+  </p> 
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>

@@ -1,0 +1,8 @@
+
+<p>Appointment Id: <%= @appointment.id %></p>
+<p>Appointment Date: <%= @appointment.date %></p>
+<p>User Id: <%= @appointment.user_id %></p>
+<p>Car Id: <%= @appointment.car_id %></p>
+<p>Appointment Status: <%= @appointment.status %></p>
+<p><%= link_to "Schedule Appointment", controller: :appointments, action: :schedule %> 
+<p><%= link_to "Back", appointments_path %></p>

@@ -1,0 +1,12 @@
+<h1>Enter your phone number to show the car quotation</h1>
+<%= form_tag({:controller => "cars", :action => "quotation"}, method: :get) do %>
+  <p>
+    <%= text_field_tag :phone, params[:phone], placeholder: "Enter your number" %>
+    <%= submit_tag "Show quotation" %>
+  </p>
+<% end %>
+<% if @price %>
+<p>The price of the car is: <%= @price%></p>
+ 
+ <%= link_to "Apply for an appointment", controller: :cars, action: :appointment  %>
+<% end %>

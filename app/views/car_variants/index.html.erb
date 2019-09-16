@@ -1,0 +1,26 @@
+<h1>CRUD operations for Car variants</h1>
+<%= link_to "Add New variant", new_car_variant_path %> |
+<%= link_to "Go to Admin Dashboard", admins_index_path %>
+
+
+<% if @car_variants != [] %>
+
+<h3>Listing of Car variants</h3>
+<table>
+  <tr>
+    <th>Name</th>
+    <th colspan="3"></th>
+  </tr>
+ 
+  <% @car_variants.each do |c| %>
+    <tr>
+      <td><%= c.name %></td>
+      <td><%= link_to "Show", car_variant_path(c) %></td>
+      <td><%= link_to "Edit", edit_car_variant_path(c) %></td>
+      <td><%= link_to "Destroy", car_variant_path(c),
+              method: :delete,
+              data: { confirm: "Are you sure?" } %></td>
+    </tr>
+  <% end %>
+</table>
+<% end %>

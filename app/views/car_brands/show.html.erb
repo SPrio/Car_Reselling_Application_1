@@ -1,0 +1,13 @@
+<p>
+  <strong>Car Brand Name:</strong>
+  <%= @car_brand.name %>
+</p>
+<h2>Car Models</h2>
+<%= render @car_brand.car_models %>
+
+
+<h2>Add a Car Model:</h2>
+<%= render 'car_models/form' %>
+
+<%= link_to "Edit", edit_car_brand_path(@car_brand) %> |
+<%= link_to "Back", car_brands_path %>

@@ -1,0 +1,41 @@
+<h1>CRUD operations for Cars</h1>
+<%= link_to "Add New Car", new_car_path %> |
+<%= link_to "Go to User Dashboard", users_index_path %>
+
+
+<% if @cars != [] %>
+
+<h3>Listing of Cars</h3>
+<table>
+  <tr>
+    <th>Brand</th>
+    <th>Model</th>
+    <th>Variant</th>
+    <th>Kilometer Driven</th>
+    <th>Registration Year</th>
+    <th>City</th>
+    <th>Registration State</th>
+    <th>Condition</th>
+    <th colspan="3"></th>
+    <th colspan="2"></th>
+  </tr>
+ 
+  <% @cars.each do |c| %>
+    <tr>
+      <td><%= c.brand %></td>
+      <td><%= c.model %></td>
+      <td><%= c.variant %></td>
+      <td><%= c.kilometer_driven %></td>
+      <td><%= c.registration_year %></td>
+      <td><%= c.city %></td>
+      <td><%= c.registration_state %></td>
+      <td><%= c.condition %></td>
+      <td><%= link_to "Show", car_path(c) %></td>
+      <td><%= link_to "Edit", edit_car_path(c) %></td>
+      <td><%= link_to "Destroy", car_path(c),
+              method: :delete,
+              data: { confirm: "Are you sure?" } %></td>
+    </tr>
+  <% end %>
+</table>
+<% end %>

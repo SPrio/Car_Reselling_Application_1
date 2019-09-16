@@ -1,0 +1,14 @@
+<% if var.errors.any? %>
+    <div>
+      <h2>
+        <%= pluralize(var.errors.count, "error") %> 
+        prohibited this Client details from being saved:
+      </h2>
+      <ul>
+        <% var.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  

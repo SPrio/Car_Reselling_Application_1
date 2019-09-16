@@ -1,0 +1,16 @@
+<%= form_for @car_registration_year do |form| %>
+  <%= render :partial => "shared/error", locals: {var: @car_registration_year} %>
+  <p>
+    <%= form.label :start %>
+    <br>
+    <%= form.text_field :start , required: true %>
+  </p>
+  <p>
+    <%= form.label :end %>
+    <br>
+    <%= form.text_field :end , required: true %>
+  </p>
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>

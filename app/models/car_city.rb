@@ -1,0 +1,2 @@
+class CarCity < ApplicationRecord
+end

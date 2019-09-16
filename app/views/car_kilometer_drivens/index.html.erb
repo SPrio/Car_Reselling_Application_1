@@ -1,0 +1,26 @@
+<h1>CRUD operations for Car kilometer driven ranges</h1>
+<%= link_to "Add New kilometer driven", new_car_kilometer_driven_path %> |
+<%= link_to "Go to Admin Dashboard", admins_index_path %>
+
+
+<% if @car_kilometer_drivens != [] %>
+
+<h3>Listing of Car kilometer driven ranges</h3>
+<table>
+  <tr>
+    <th>Range</th>
+    <th colspan="3"></th>
+  </tr>
+ 
+  <% @car_kilometer_drivens.each do |c| %>
+    <tr>
+      <td><%= c.range %></td>
+      <td><%= link_to "Show", car_kilometer_driven_path(c) %></td>
+      <td><%= link_to "Edit", edit_car_kilometer_driven_path(c) %></td>
+      <td><%= link_to "Destroy", car_kilometer_driven_path(c),
+              method: :delete,
+              data: { confirm: "Are you sure?" } %></td>
+    </tr>
+  <% end %>
+</table>
+<% end %>

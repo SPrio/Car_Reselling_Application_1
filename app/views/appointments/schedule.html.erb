@@ -1,0 +1,7 @@
+<h1>Schedule the appointment</h1>
+<%= form_for @appointment, :url => {:action => "save_schedule"} do |form| %>
+  <%= render :partial => "shared/error", locals: {var: @appointment} %>
+  <p><%= form.datetime_field :date, :value=>'19/09/2018,01:00'%></p>
+  <p><%= form.submit 'Set Appointment' %></p>
+  <% end %>
+ 

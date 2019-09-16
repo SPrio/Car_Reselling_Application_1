@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>CRA3</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag :jquery %>
+ 
+
+  </head>
+
+  <body>
+    <nav class ="navbar navbar-expand-sm navbar-light bg-light">
+      <a class = "navbar-brand" href='/home/index'>Car Reselling Corp.</a>
+        <ul class="navbar-nav">
+          <% if user_signed_in? %>
+            <li class="nav-item btn-group" data-behavior="notifications">
+              <a class="dropdown-toggle nav-link" type="button" data-behavior="notifications-link" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span data-behavior="unread-count"></span>
+                Notifications
+              </a>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenu1" data-behavior="notification-items">
+                <!--
+                <a class="dropdown-item" href="#">Action</a>
+                <a class="dropdown-item" href="#">Another action</a>
+                <a class="dropdown-item" href="#">Something else here</a>
+                -->
+              </div>
+            </li>
+            <li class="nav-item"><%= link_to "Logout", destroy_user_session_path, method: :delete, class: "nav-link" %></li>
+            <% else %>
+            <li class="nav-item"><%= link_to "Sign Up", new_user_registration_path, class: "nav-link" %></li>
+            <li class="nav-item"><%= link_to "Login", new_user_session_path, class: "nav-link" %></li>
+          <% end %>
+        </ul>
+  </nav>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+    <%= yield %>
+  </body>
+</html>

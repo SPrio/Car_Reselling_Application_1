@@ -1,0 +1,26 @@
+<h1>CRUD operations for Store Cities</h1>
+<%= link_to "Add New City", new_car_city_path %> |
+<%= link_to "Go to Admin Dashboard", admins_index_path %>
+
+
+<% if @car_cities != [] %>
+
+<h3>Listing of Cities</h3>
+<table>
+  <tr>
+    <th>Name</th>
+    <th colspan="3"></th>
+  </tr>
+ 
+  <% @car_cities.each do |c| %>
+    <tr>
+      <td><%= c.name %></td>
+      <td><%= link_to "Show", car_city_path(c) %></td>
+      <td><%= link_to "Edit", edit_car_city_path(c) %></td>
+      <td><%= link_to "Destroy", car_city_path(c),
+              method: :delete,
+              data: { confirm: "Are you sure?" } %></td>
+    </tr>
+  <% end %>
+</table>
+<% end %>

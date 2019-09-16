@@ -1,0 +1,2 @@
+class CarCost < ApplicationRecord
+end

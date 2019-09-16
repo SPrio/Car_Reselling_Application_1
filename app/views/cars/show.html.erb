@@ -1,0 +1,36 @@
+<p>
+  <strong>Car Brand:</strong>
+  <%= @car.brand %>
+</p>
+<p>
+  <strong>Car Model:</strong>
+  <%= @car.model %>
+</p>
+<p>
+  <strong>Car Variant:</strong>
+  <%= @car.variant %>
+</p>
+<p>
+  <strong>Car Kilometer Driven:</strong>
+  <%= @car.kilometer_driven %>
+</p>
+<p>
+  <strong>Car Registration Year:</strong>
+  <%= @car.registration_year %>
+</p>
+<p>
+  <strong>Car city:</strong>
+  <%= @car.city %>
+</p>
+<p>
+  <strong>Car Registration State:</strong>
+  <%= @car.registration_state %>
+</p>
+<p>
+  <strong>Car Condition:</strong>
+  <%= @car.condition %>
+</p>
+
+<%= link_to "Show Quotation", quotation_car_path(@car) %> |
+<%= link_to "Edit", edit_car_path(@car) %> |
+<%= link_to "Back", cars_path %>

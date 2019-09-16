@@ -1,0 +1,9 @@
+<%= form_with(model: [ @car_brand, @car_brand.car_models.build ], local: true) do |form| %>
+  <p>
+    <%= form.label :name %><br>
+    <%= form.text_area :name %>
+  </p>
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>
