@@ -10,9 +10,13 @@
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
-<div class="field">
-    <%= f.label :category %><br />
-    <%= f.select(:category,['buyer','seller']) %>
+  <div class="field">
+    <%= f.label :number %><br />
+    <%= f.text_field :number, autofocus: true, autocomplete: "number" %>
+  </div>
+  <div class="field">
+      <%= f.label :category %><br />
+      <%= f.select(:category,['buyer','seller']) %>
   </div>
   <div class="field">
     <%= f.label :password %>

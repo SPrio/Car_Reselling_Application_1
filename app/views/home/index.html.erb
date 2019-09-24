@@ -1,22 +1,16 @@
-<h1>Hello, Rails!</h1>
-<% if user_signed_in? %>
-  Logged in as <strong><%= current_user.email %></strong>
-  <p><%= link_to 'Go To User Dashboard', users_index_path %></p>
-  <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |
-  <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
-<% elsif admin_signed_in? %>
-  Logged in as <strong><%= current_admin.email %></strong>
-  <p><%= link_to 'Go To Admin Dashboard', admins_index_path %></p>
-  <%= link_to 'Edit profile', edit_admin_registration_path, :class => 'navbar-link' %> |
-  <%= link_to "Logout", destroy_admin_session_path, method: :delete, :class => 'navbar-link'  %>  
-<% else %>
-<p>For Admin</p>
-  <%= link_to "Sign up", new_admin_registration_path, :class => 'navbar-link'  %> |
-  <%= link_to "Login", new_admin_session_path, :class => 'navbar-link'  %> <p> or</p>
-  <p>For User</p>
-  <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> |
-  <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
-<% end %>
-<p>
-<%= link_to 'Search Page', home_filter_search_path %>
-</p>
+<div class="jumbotron">
+  <div class="container">
+    <h1 class="display-3">Car Reselling Corporation</h1>
+    <p>Here you will get the best price for your car. Please login as seller to add your car for reselling. You can also search for cars as per your preferences to buy a car</p>
+      <% if not user_signed_in? %>      
+        <p><%= link_to 'Search for Cars »', home_filter_search_path, class: "btn btn-primary btn-lg"%></p>
+      <% else %>
+        <% if not current_user.category == 'seller' %>
+          <p><%= link_to 'Search for Cars »', home_filter_search_path, class: "btn btn-primary btn-lg"%></p>
+        <% else %>
+          <p><%= link_to 'Seller Dashboard', cars_path, class: "btn btn-primary btn-lg"%></p>
+        <% end %>
+      <% end %>
+    
+  </div>
+</div>

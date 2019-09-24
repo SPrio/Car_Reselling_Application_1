@@ -1,8 +1,25 @@
-
-<p>Appointment Id: <%= @appointment.id %></p>
-<p>Appointment Date: <%= @appointment.date %></p>
-<p>User Id: <%= @appointment.user_id %></p>
-<p>Car Id: <%= @appointment.car_id %></p>
-<p>Appointment Status: <%= @appointment.status %></p>
-<p><%= link_to "Schedule Appointment", controller: :appointments, action: :schedule %> 
-<p><%= link_to "Back", appointments_path %></p>
+<p><%= link_to "Back", appointments_path , class: 'btn btn-secondary btn-lg mt-100' %></p>
+<table class="table table-bordered">
+  <tr class="thead-light text-center">
+    <th scope="col">Appointment Id</th>
+    <th scope="col">Appointment Date</th>
+    <th scope="col">User Id</th>
+    <th scope="col">Car Id</th>
+    <th scope="col">Appointment Status</th>
+    <th colspan="4" scope="col">Operations</th>
+  </tr>
+  <tr>
+    <td><%= @appointment.id %></p>
+    <td><%= @appointment.date %></p>
+    <td><%= @appointment.user_id %></p>
+    <td><%= @appointment.car_id %></p>
+    <td><%= @appointment.status %></td>
+    <td><%= link_to "Schedule Appointment", controller: :appointments, action: :schedule, class: 'btn btn-primary btn-sm' %> </td>
+    <td><%= link_to "Verify Car", controller: :appointments, action: :verify , class: 'btn btn-primary btn-sm' %> </td>
+    <td><%= link_to "Sold out", controller: :appointments, action: :soldout , class: 'btn btn-primary btn-sm' %> </td>
+    <td><%= link_to "Reject", appointment_path(@appointment),
+                      method: :delete,
+                    data: { confirm: "Are you sure?" }
+                    %> </td>
+  </tr>
+<table>

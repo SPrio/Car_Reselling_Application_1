@@ -18,8 +18,10 @@ class AppointmentsController < ApplicationController
  	#binding.pry
  	if @appointment.save!
     @user = User.find(@appointment.user_id)
- 		Notification.create(recipient: @user, action: "Your appointment scheduled at #{@appointment.date}", notifiable: @appointment)
- 		redirect_to details_appointment_path(@appointment)
+    Notification.create(recipient: @user, action: "Your appointment scheduled at #{@appointment.date}", notifiable: @appointment)
+    Notification.create(recipient: @user, action: "Your appointment status is #{@appointment.status}", notifiable: @appointment)
+ 		UserMailer.statusupdate( User.find(@appointment.user_id).email, @appointment.status ).deliver
+    redirect_to details_appointment_path(@appointment)
  	end
  end
 
@@ -57,6 +59,38 @@ class AppointmentsController < ApplicationController
  
   def details
   	@appointment = Appointment.find(params[:id])
+  end
+  def verify
+    @appointment = Appointment.find(params[:id])
+    @user = User.find(@appointment.user_id)
+    @appointment = Appointment.find(params[:id])
+    @appointment.status = "verified"
+    @appointment.save!
+    Notification.create(recipient: @user, action: "Your appointment status of the car is #{@appointment.status}", notifiable: @appointment)
+    UserMailer.statusupdate( User.find(@appointment.user_id).email, @appointment.status ).deliver
+    redirect_to details_appointment_path
+  end
+  def soldout
+    @appointment = Appointment.find(params[:id])
+    @user = User.find(@appointment.user_id)
+    @appointment = Appointment.find(params[:id])
+    @appointment.status = "soldout"
+    @appointment.save!
+    Notification.create(recipient: @user, action: "Your appointment status of the car is #{@appointment.status}", notifiable: @appointment)
+    UserMailer.statusupdate( User.find(@appointment.user_id).email, @appointment.status ).deliver
+    redirect_to details_appointment_path
+  end
+
+  def my_appointments
+    @appointments = Appointment.where(user_id: current_user.id)
+  end
+
+  def status
+    if params[:status].blank?
+      @appointment = nil
+    else
+      @appointment = Appointment.find(params[:status])
+    end
   end
   private
 	def appointment_params     

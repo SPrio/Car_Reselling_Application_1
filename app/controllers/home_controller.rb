@@ -1,30 +1,36 @@
+#require 'pry'
 class HomeController < ApplicationController
   def index
   end
   def filter_search
-    @cars = Car.search1(params[:city],params[:brand],params[:model],params[:registration_year],params[:variant],params[:registration_state],params[:kilometer_driven])
+    if params[:search].nil?
+      @cars = Car.all
+    else
+      @cars = Car.filtered_search(params[:search],params[:city],params[:brand],params[:model],params[:registration_year],params[:variant],params[:registration_state],params[:kilometer_driven])
+      render 'filter_search'
+     end
+    #@cars = Car.search1(params[:city],params[:brand],params[:model],params[:registration_year],params[:variant],params[:registration_state],params[:kilometer_driven])
     
     # response = Car.__elasticsearch__.search(
     #   query: {
     #     multi_match: {
     #       query: params[:query],
-    #       fields: ['model', 'brand', 'variant']
+    #       fields: [:city, :brand, :model, :registration_year, :variant, :registration_state, :kilometer_driven, :condition]
     #     }
     #   }
     # ).results
-    # print response
+
     # render json: {
-      
-    #     results: response.results,
-    #     total: response.total
-    # }
+    #   results: response.results,
+    #   total: response.total
+    # } 
+  end
+  def places
+    @places = CarCity.all
     
-    #print @cars
-    #(:city, :brand,:model,:registration_year,:variant,:registration_state,:kilometer_driven)
-    #if @cars
   end
   private
     def search_params
-      #params.require(:cars).permit(:city, :brand,:model,:registration_year,:variant,:registration_state,:kilometer_driven)     
+      #params.require(:cars).permit(:city, :brand,:model,:registration_year,:variant,:registration_state,:kilometer_driven, :search)     
     end
 end

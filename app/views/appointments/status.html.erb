@@ -1,0 +1,25 @@
+<div class="jumbotron">
+  <h1>Check your appointment status</h1>
+</div>
+<%= form_tag({controller: "appointments", :action => 'status'}, method: :get) do %>
+	<%= text_field_tag :status, params[:status],placeholder: "Enter your appointment id" %>
+	<%= submit_tag "check status"%>
+	<% end %>
+<%unless @appointment.blank?%>
+<table class="table">
+  <tr class="thead-light">
+    <th scope="col">Appointment Id</th>
+    <th scope="col">Appointment Date</th>
+    <th scope="col">Car Id</th>
+    <th scope="col">Status</th>
+  </tr>
+  
+    <tr>
+      <td><%= @appointment.id %></td>
+      <td><%= @appointment.date %></td>
+      <td><%= @appointment.car_id %></td>
+      <td><%= @appointment.status %></td>
+    </tr>
+  
+</table>
+<%end%>

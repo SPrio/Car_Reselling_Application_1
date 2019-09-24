@@ -70,5 +70,8 @@ gem 'tether-rails'
 gem 'bootstrap'
 gem 'pry-rails'
 
-gem 'elasticsearch-model', git: 'git://github.com/elastic/elasticsearch-rails.git', branch: 'master'
-gem 'elasticsearch-rails', git: 'git://github.com/elastic/elasticsearch-rails.git', branch: 'master'
+#gem 'elasticsearch-model', git: 'git://github.com/elastic/elasticsearch-rails.git', branch: 'master'
+#gem 'elasticsearch-rails', git: 'git://github.com/elastic/elasticsearch-rails.git', branch: 'master'
+
+gem 'elasticsearch-model'
+gem 'font-awesome-rails'

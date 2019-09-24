@@ -19,3 +19,8 @@
 @import "/*";
 @import "bootstrap";
 @import "tether";
+@import "font-awesome";
+
+.alert{
+  z-index: 2;
+}

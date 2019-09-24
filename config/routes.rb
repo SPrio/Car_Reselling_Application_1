@@ -1,8 +1,10 @@
+
 Rails.application.routes.draw do
   devise_for :admins, path: 'admins', controllers: { sessions: "admins/sessions", registrations: "admins/registrations" }
   devise_for :users, path: 'users', controllers: { sessions: "users/sessions" }
   get 'home/index'
   get 'home/filter_search', to: 'home#filter_search'
+  get 'home/places', to: 'home#places'
   root to: 'home#index'
   get 'admins/index', to: 'admins#index' 
   resources :car_brands do
@@ -29,6 +31,13 @@ Rails.application.routes.draw do
       get 'approve'
       get 'schedule'
       patch 'save_schedule'
+      get 'verify'
+      get 'soldout'
+
+    end
+    collection do
+      get 'my_appointments'
+      get 'status'
     end
   end
   resources :notifications do

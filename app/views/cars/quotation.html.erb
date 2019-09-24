@@ -1,12 +1,14 @@
-<h1>Enter your phone number to show the car quotation</h1>
+<div class="jumbotron">
+  <h1>Enter your phone number to show the car quotation</h1>
+</div>
+<p><%= link_to "Back to Search", home_filter_search_path , class: 'btn btn-secondary btn-lg' %></p>
 <%= form_tag({:controller => "cars", :action => "quotation"}, method: :get) do %>
   <p>
     <%= text_field_tag :phone, params[:phone], placeholder: "Enter your number" %>
-    <%= submit_tag "Show quotation" %>
+  <%= submit_tag "Show quotation" %>
   </p>
 <% end %>
 <% if @price %>
 <p>The price of the car is: <%= @price%></p>
- 
- <%= link_to "Apply for an appointment", controller: :cars, action: :appointment  %>
+	<%= link_to "Apply for an appointment", controller: :cars, action: :appointment  %>
 <% end %>
