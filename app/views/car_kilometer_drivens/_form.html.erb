@@ -1,5 +1,5 @@
 <%= form_for @car_kilometer_driven do |form| %>
-  <%= render :partial => "shared/error", locals: {var: @car_kilometer_driven} %>
+  <%= render partial: "shared/error", locals: {var: @car_kilometer_driven} %>
   <p>
     <%= form.label :range %>
     <br>

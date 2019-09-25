@@ -1,5 +1,5 @@
 <%= form_for @car do |form| %>
-  <%= render :partial => "shared/error", locals: {var: @car} %>
+  <%= render partial: "shared/error", locals: {var: @car} %>
   <p>
     <%= form.label :brand %>
     <br>

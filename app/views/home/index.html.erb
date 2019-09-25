@@ -2,15 +2,14 @@
   <div class="container">
     <h1 class="display-3">Car Reselling Corporation</h1>
     <p>Here you will get the best price for your car. Please login as seller to add your car for reselling. You can also search for cars as per your preferences to buy a car</p>
-      <% if not user_signed_in? %>      
+    <% if not user_signed_in? %>      
+      <p><%= link_to 'Search for Cars »', home_filter_search_path, class: "btn btn-primary btn-lg"%></p>
+    <% else %>
+      <% if not current_user.category == 'seller' %>
         <p><%= link_to 'Search for Cars »', home_filter_search_path, class: "btn btn-primary btn-lg"%></p>
       <% else %>
-        <% if not current_user.category == 'seller' %>
-          <p><%= link_to 'Search for Cars »', home_filter_search_path, class: "btn btn-primary btn-lg"%></p>
-        <% else %>
-          <p><%= link_to 'Seller Dashboard', cars_path, class: "btn btn-primary btn-lg"%></p>
-        <% end %>
+        <p><%= link_to 'Seller Dashboard', cars_path, class: "btn btn-primary btn-lg"%></p>
       <% end %>
-    
+    <% end %>
   </div>
 </div>
