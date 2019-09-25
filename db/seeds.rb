@@ -20,6 +20,8 @@ brands = {
  'Maruti Suzuki' => 'Alto',
  'Tata' => 'Indigo'
 }
+
+Car.__elasticsearch__.create_index!(force: true)
 10.times do
   #fbrand = Faker::Vehicle.make
   #fmodel = Faker::Vehicle.model(make_of_model: fbrand)

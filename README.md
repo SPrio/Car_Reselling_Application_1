@@ -1,24 +1,4 @@
-# README
-
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## Steps to start the application
+### admin mail is administrator@mail.com and password is "administrator"
+### Then to use the search first start elastice search as service in terminal as "service elasticsearch start"
+### then run the seed file as "rake db:seed"
